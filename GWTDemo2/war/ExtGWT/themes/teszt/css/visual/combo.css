@@ -1,0 +1,52 @@
+.x-combo-list {
+
+	border-color: #c1adbd;
+	background-color: #ecd7e8;
+	font: normal 12px tahoma, arial, helvetica, sans-serif;
+}
+
+
+.x-combo-list-inner {
+
+	background-color: #fff;
+}
+
+
+.x-combo-list-hd {
+
+	font: bold 11px tahoma, arial, helvetica, sans-serif;
+	color: #383741;
+	background-image: url(../images/default/layout/panel-title-light-bg.gif);
+	border-bottom-color: #c1adbd;
+}
+
+
+.x-resizable-pinned .x-combo-list-inner {
+
+	border-bottom-color: #c1adbd;
+}
+
+
+.x-combo-list-item {
+
+	border-color: #ffebfb;
+}
+
+
+.x-combo-list .x-combo-selected{
+
+	border-color: #c0acbc !important;
+	background-color: #e9d5e6;
+}
+
+
+.x-combo-list .x-toolbar {
+
+	border-top-color: #c1adbd;
+}
+
+
+.x-combo-list-small {
+
+	font: normal 11px tahoma, arial, helvetica, sans-serif;
+}

@@ -1,0 +1,160 @@
+.x-form-field{
+
+	font: normal 12px tahoma, arial, helvetica, sans-serif;
+}
+
+
+.x-form-text,  textarea.x-form-field{
+
+	background-color: rgb(255,255,255);
+	background-image: url(../images/default/form/text-bg.gif);
+	border-color: #c1acbd;
+}
+
+
+.x-form-select-one {
+
+	background-color: #ffffff;
+	border-color: #c1acbd;
+}
+
+
+.x-form-check-group-label {
+
+	border-bottom: 1px solid #bea9ba;
+	color: #383741;
+}
+
+
+.x-editor .x-form-check-wrap {
+
+	background-color: #ffffff;
+}
+
+
+.x-form-field-wrap .x-form-trigger{
+
+	background-image: url(../images/default/form/trigger.gif);
+	border-bottom-color: #c1acbd;
+}
+
+
+.x-form-field-wrap .x-form-date-trigger{
+
+	background-image: url(../images/default/form/date-trigger.gif);
+}
+
+
+.x-form-field-wrap .x-form-clear-trigger{
+
+	background-image: url(../images/default/form/clear-trigger.gif);
+}
+
+
+.x-form-field-wrap .x-form-search-trigger{
+
+	background-image: url(../images/default/form/search-trigger.gif);
+}
+
+
+.x-trigger-wrap-focus .x-form-trigger{
+
+	border-bottom-color: #ae99aa;
+}
+
+
+.x-item-disabled .x-form-trigger-over{
+
+	border-bottom-color: #c1acbd;
+}
+
+
+.x-item-disabled .x-form-trigger-click{
+
+	border-bottom-color: #c1acbd;
+}
+
+
+.x-form-focus,  textarea.x-form-focus{
+
+	border-color: #ae99aa;
+}
+
+
+.x-form-invalid,  textarea.x-form-invalid{
+
+	background-color: #ffebfb;
+	background-image: url(../images/default/grid/invalid_line.gif);
+	border-color: #6d5969;
+}
+
+
+.ext-safari .x-form-invalid{
+
+	background-color: #f4e0f0;
+	border-color: #aa96a6;
+}
+
+
+.x-form-inner-invalid,  textarea.x-form-inner-invalid{
+
+	background-color: #ffebfb;
+	background-image: url(../images/default/grid/invalid_line.gif);
+}
+
+
+.x-form-grow-sizer {
+
+	font: normal 12px tahoma, arial, helvetica, sans-serif;
+}
+
+
+.x-form-item {
+
+	font: normal 12px tahoma, arial, helvetica, sans-serif;
+}
+
+
+.x-form-invalid-msg {
+
+	color: #4e4d57;
+	font: normal 11px tahoma, arial, helvetica, sans-serif;
+	background-image: url(../images/default/shared/warning.gif);
+}
+
+
+.x-form-empty-field {
+
+	color: #9a98a2;
+}
+
+
+.x-small-editor .x-form-field {
+
+	font: normal 11px arial, tahoma, helvetica, sans-serif;
+}
+
+
+.ext-safari .x-small-editor .x-form-field {
+
+	font: normal 12px arial, tahoma, helvetica, sans-serif;
+}
+
+
+.x-form-invalid-icon {
+
+	background-image: url(../images/default/form/exclamation.gif);
+}
+
+
+.x-fieldset {
+
+	border-color: #c1acbd;
+}
+
+
+.x-fieldset legend {
+
+	font: bold 11px tahoma, arial, helvetica, sans-serif;
+	color: #383741;
+}

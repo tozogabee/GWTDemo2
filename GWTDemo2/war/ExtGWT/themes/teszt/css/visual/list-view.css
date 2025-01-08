@@ -1,0 +1,44 @@
+.x-list-header{
+
+	background-color: #fae5f6;
+	background-image: url(../images/default/grid/grid3-hrow.gif);
+}
+
+
+.x-list-header-inner div em {
+
+	border-left-color: #e1ccdd;
+	font: normal 11px arial, tahoma, helvetica, sans-serif;
+}
+
+
+.x-list-body dt em {
+
+	font: normal 11px arial, tahoma, helvetica, sans-serif;
+}
+
+
+.x-list-over {
+
+	background-color: #f0dbec;
+}
+
+
+.x-list-selected {
+
+	background-color: #e9d5e6;
+}
+
+
+.x-list-resizer {
+
+	border-left-color: #685364;
+	border-right-color: #685364;
+}
+
+
+.x-list-header-inner em.sort-asc,  .x-list-header-inner em.sort-desc {
+
+	background-image: url(../images/default/grid/sort-hd.gif);
+	border-color: #bea9ba;
+}

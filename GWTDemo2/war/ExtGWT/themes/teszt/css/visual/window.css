@@ -1,0 +1,117 @@
+.x-window-proxy {
+
+	background-color: #dfcadb;
+	border-color: #bea9ba;
+}
+
+
+.x-window-tl .x-window-header {
+
+	color: #383741;
+	font: bold 11px tahoma,arial,verdana,sans-serif;
+}
+
+
+.x-window-tc {
+
+	background-image: url(../images/default/window/top-bottom.png);
+}
+
+
+.x-window-tl {
+
+	background-image: url(../images/default/window/left-corners.png);
+}
+
+
+.x-window-tr {
+
+	background-image: url(../images/default/window/right-corners.png);
+}
+
+
+.x-window-bc {
+
+	background-image: url(../images/default/window/top-bottom.png);
+}
+
+
+.x-window-bl {
+
+	background-image: url(../images/default/window/left-corners.png);
+}
+
+
+.x-window-br {
+
+	background-image: url(../images/default/window/right-corners.png);
+}
+
+
+.x-window-mc {
+
+	border-color: #bea9ba;
+	font: normal 11px tahoma,arial,helvetica,sans-serif;
+	background-color: #e9d5e6;
+}
+
+
+.x-window-ml {
+
+	background-image: url(../images/default/window/left-right.png);
+}
+
+
+.x-window-mr {
+
+	background-image: url(../images/default/window/left-right.png);
+}
+
+
+.x-window-maximized .x-window-tc {
+
+	background-color: #ffebfb;
+}
+
+
+.x-window-bbar .x-toolbar {
+
+	border-top-color: #bea9ba;
+}
+
+
+.x-panel-ghost .x-window-tl {
+
+	border-bottom-color: #bea9ba;
+}
+
+
+.x-panel-collapsed .x-window-tl {
+
+	border-bottom-color: #a692a3;
+}
+
+
+.x-dlg-mask{
+
+	background-color: #d2bdce;
+}
+
+
+.x-window-plain .x-window-mc {
+
+	background-color: #dbc7d7;
+	border-color: #c0acbc #e9d5e6 #e9d5e6 #c0acbc;
+}
+
+
+.x-window-plain .x-window-body {
+
+	border-color: #e9d5e6 #c0acbc #c0acbc #e9d5e6;
+}
+
+
+body.x-body-masked .x-window-plain .x-window-mc {
+
+	background-color: #dbc7d7;
+}

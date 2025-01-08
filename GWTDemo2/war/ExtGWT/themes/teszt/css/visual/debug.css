@@ -1,0 +1,25 @@
+#x-debug-browser .x-tree .x-tree-node a span {
+
+	color: #2c2b35;
+	font-size: 11px;
+	font-family: "monotype","courier new",sans-serif;
+}
+
+
+#x-debug-browser .x-tree a i {
+
+	color: #71707a;
+	font-style: normal;
+}
+
+
+#x-debug-browser .x-tree a em {
+
+	color: #8a8993;
+}
+
+
+#x-debug-browser .x-tree .x-tree-node .x-tree-selected a span{
+
+	background-color: #dbc7d7;
+}

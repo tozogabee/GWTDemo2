@@ -5,6 +5,7 @@ import java.util.Locale;
 import com.example.gwt.demo.client.tasks.Task1;
 import com.example.gwt.demo.client.tasks.Task2;
 import com.example.gwt.demo.client.tasks.Task3;
+import com.example.gwt.demo.client.tasks.Task4;
 import com.extjs.gxt.ui.client.GXT;
 import com.extjs.gxt.ui.client.widget.ContentPanel;
 import com.extjs.gxt.ui.client.widget.TabPanel;
@@ -25,8 +26,7 @@ public class GWTDemo2 implements EntryPoint {
 
 	@Override
 	public void onModuleLoad() {
-        //Locale locale = new Locale(LocaleInfo.getCurrentLocale().getLocaleName());
-        //GXT.setLocale(locale);
+
 		cp = new ContentPanel();
 		cp.setHeaderVisible(true);
 		cp.setWidth("100%");
@@ -38,7 +38,7 @@ public class GWTDemo2 implements EntryPoint {
 		tp.add(new Task1("1st Task"));
 		tp.add(new Task2("2nd Task"));
 		tp.add(new Task3("3rd Task"));
-		//tp.add(new Feladat1("2"));
+		tp.add(new Task4("4th Task"));
 		
 		
 

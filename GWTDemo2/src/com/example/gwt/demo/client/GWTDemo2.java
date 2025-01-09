@@ -4,6 +4,7 @@ import java.util.Locale;
 
 import com.example.gwt.demo.client.tasks.Task1;
 import com.example.gwt.demo.client.tasks.Task2;
+import com.example.gwt.demo.client.tasks.Task3;
 import com.extjs.gxt.ui.client.GXT;
 import com.extjs.gxt.ui.client.widget.ContentPanel;
 import com.extjs.gxt.ui.client.widget.TabPanel;
@@ -36,6 +37,7 @@ public class GWTDemo2 implements EntryPoint {
 		tp = new TabPanel();
 		tp.add(new Task1("1st Task"));
 		tp.add(new Task2("2nd Task"));
+		tp.add(new Task3("3rd Task"));
 		//tp.add(new Feladat1("2"));
 		
 		

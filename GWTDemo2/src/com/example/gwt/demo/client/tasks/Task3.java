@@ -1,14 +1,14 @@
 package com.example.gwt.demo.client.tasks;
 
-import com.extjs.gxt.ui.client.event.BaseEvent;
+import com.extjs.gxt.ui.client.event.DomEvent;
 import com.extjs.gxt.ui.client.event.Events;
 import com.extjs.gxt.ui.client.event.Listener;
 import com.extjs.gxt.ui.client.widget.LayoutContainer;
 import com.extjs.gxt.ui.client.widget.TabItem;
+import com.extjs.gxt.ui.client.widget.Window;
 import com.extjs.gxt.ui.client.widget.layout.FitLayout;
 import com.extjs.gxt.ui.client.widget.layout.FlowLayout;
 import com.google.gwt.user.client.Element;
-import com.extjs.gxt.ui.client.widget.Window;
 
 
 public class Task3 extends TabItem {
@@ -22,21 +22,45 @@ public class Task3 extends TabItem {
 	protected void onRender(Element parent, int index){
 		super.onRender(parent, index);
 		LayoutContainer container = new LayoutContainer();
-        final Window gxtWindow = new Window();
-        gxtWindow.setHeading("GXT Window Example");
-        gxtWindow.setSize(400, 200);
-        gxtWindow.setModal(true); // Makes the window modal (blocks background interactions)
-        gxtWindow.setResizable(false); // Disables window resizing
         container.setLayout(new FlowLayout());
-        container.setStyleAttribute("background-color", "#d0e4f7"); // Set a background color
+        container.setStyleAttribute("background-color", "#d0e4f7");
+        
+        container.addListener(Events.OnClick, new Listener<DomEvent>() {
 
-        container.addListener(Events.OnClick, new Listener<BaseEvent>() {
-            public void handleEvent(BaseEvent be) {
-                gxtWindow.show();
-            }
+			@Override
+			public void handleEvent(DomEvent be) {
+		        final Window gxtWindow = new Window();
+		         int windowWidth = com.google.gwt.user.client.Window.getClientWidth();
+		         int windowHeight = com.google.gwt.user.client.Window.getClientHeight();
+		        gxtWindow.setHeading("GXT Window Example");
+		        gxtWindow.setSize(400, 200);
+		        gxtWindow.setModal(true);
+		        gxtWindow.setResizable(false); 
+
+				int clickX = be.getClientX();
+				int clickY = be.getClientY();
+				
+		        int gxtWindowWidth = 400;
+		        int gxtWindowHeight = 200;
+				
+
+		        if (clickX + gxtWindowWidth > windowWidth) {
+		            clickX = windowWidth - gxtWindowWidth;
+		        }
+		        if (clickY + gxtWindowHeight > windowHeight) {
+		            clickY = windowHeight - gxtWindowHeight;
+		        }
+
+		         clickX = Math.max(clickX, 0);
+		         clickY = Math.max(clickY, 0);
+		         gxtWindow.setPosition(clickX,clickY);
+		         gxtWindow.show();
+			}
+        	
         });
+        
+     
         setLayout(new FitLayout());
 		add(container);
 	}
-
 }

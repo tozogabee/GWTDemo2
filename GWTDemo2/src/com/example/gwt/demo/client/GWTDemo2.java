@@ -1,19 +1,15 @@
 package com.example.gwt.demo.client;
 
-import java.util.Locale;
-
 import com.example.gwt.demo.client.tasks.Task1;
 import com.example.gwt.demo.client.tasks.Task2;
 import com.example.gwt.demo.client.tasks.Task3;
 import com.example.gwt.demo.client.tasks.Task4;
-import com.extjs.gxt.ui.client.GXT;
 import com.extjs.gxt.ui.client.widget.ContentPanel;
 import com.extjs.gxt.ui.client.widget.TabPanel;
 import com.extjs.gxt.ui.client.widget.layout.FitLayout;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.event.logical.shared.ResizeEvent;
 import com.google.gwt.event.logical.shared.ResizeHandler;
-import com.google.gwt.i18n.client.LocaleInfo;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.RootPanel;
 
@@ -45,8 +41,8 @@ public class GWTDemo2 implements EntryPoint {
 
 
 
-		tp.setSelection(tp.getItem(tp.getItemCount() -1)); // mindig a legutolsó legyen megnyitva alapból
-
+		tp.setSelection(tp.getItem(tp.getItemCount() -1)); 
+		
 		cp.add(tp);
 		Window.addResizeHandler(new ResizeHandler() {
 			@Override
@@ -59,7 +55,6 @@ public class GWTDemo2 implements EntryPoint {
 		RootPanel.get("gwt").add(cp);
 	}
 
-	// Az ablak teljes magasságára méreteződjön
 	private void Resize() {
 		cp.setHeight(Window.getClientHeight());
 	}

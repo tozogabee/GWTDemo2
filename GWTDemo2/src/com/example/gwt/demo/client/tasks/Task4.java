@@ -3,80 +3,129 @@ package com.example.gwt.demo.client.tasks;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.extjs.gxt.ui.client.event.ButtonEvent;
+import com.extjs.gxt.ui.client.event.SelectionListener;
 import com.extjs.gxt.ui.client.widget.LayoutContainer;
 import com.extjs.gxt.ui.client.widget.TabItem;
 import com.extjs.gxt.ui.client.widget.button.Button;
 import com.extjs.gxt.ui.client.widget.layout.HBoxLayout;
 import com.extjs.gxt.ui.client.widget.layout.HBoxLayoutData;
 import com.extjs.gxt.ui.client.widget.layout.RowLayout;
+import com.extjs.gxt.ui.client.widget.layout.FitLayout;
 import com.google.gwt.user.client.Element;
 
 public class Task4 extends TabItem {
 
-	public Task4(String text) {
-		this.setText(text);
-	}
+    public Task4(String text) {
+        this.setText(text);
+    }
 
-	@Override
-	protected void onRender(Element parent, int index) {
-		super.onRender(parent, index);
-		HBoxLayout layout = new HBoxLayout();
-		setLayout(layout);
-		List<Button> buttons = createButtons(9);
-		addButtonsToThePanel(buttons, index);
-	}
-	
-	private List<Button> createButtons(int numOfButtons) {
-	    List<Button> buttons = new ArrayList<Button>();
-	    for (int i = 0; i < numOfButtons; ++i) {
-	        buttons.add(new Button("1")); // Label each button uniquely
-	    }
-	    return buttons;
-	}
-	
-	private void addButtonsToThePanel(List<Button> buttons, int index) {
-	    int wholePart = getWholeValue(buttons.size());   // Number of buttons per row
-	    int residualValue = getResidualValue(buttons.size()); // Remaining buttons for the last row
+    @Override
+    protected void onRender(Element parent, int index) {
+        super.onRender(parent, index);
 
-	    LayoutContainer outerContainer = new LayoutContainer();
-	    outerContainer.setLayout(new RowLayout()); // Use RowLayout to stack rows vertically
+        setLayout(new FitLayout());
 
-	    int buttonIndex = 0;
+        List<List<Button>> buttons = createButtons(9);
+        addButtonsToThePanel(buttons,index);
+        buttonTextChangeInThisRowAndColumn(buttons);
+    }
+    
+    private List<List<Button>> createButtons(int numOfButtons) {
+        List<List<Button>> buttonGrid = new ArrayList<List<Button>>();
+        int wholePart = getWholeValue(numOfButtons);
+        int residualValue = getResidualValue(numOfButtons);
 
-	    // Add full rows
-	    for (int i = 0; i < wholePart; ++i) {
-	        LayoutContainer rowContainer = new LayoutContainer();
-	        rowContainer.setLayout(new HBoxLayout()); // HBoxLayout for horizontal row
+        for (int i = 0; i < wholePart; ++i) {
+            List<Button> row = new ArrayList<Button>();
+            for (int j = 0; j < wholePart; ++j) {
+                row.add(new Button("1"));
+            }
+            buttonGrid.add(row);
+        }
 
-	        for (int j = 0; j < wholePart; ++j) {
-	            rowContainer.add(buttons.get(buttonIndex++), new HBoxLayoutData(10, index, index, index));
-	        }
+        if (residualValue > 0) {
+            List<Button> residualRow = new ArrayList<Button>();
+            for (int i = 0; i < residualValue; ++i) {
+                residualRow.add(new Button("1"));
+            }
+            buttonGrid.add(residualRow);
+        }
 
-	        outerContainer.add(rowContainer); // Add the row to the outer container
-	    }
+        return buttonGrid;
+    }
 
-	    // Handle the remaining buttons (if any)
-	    if (residualValue > 0) {
-	        LayoutContainer residualRow = new LayoutContainer();
-	        residualRow.setLayout(new HBoxLayout());
+    private void addButtonsToThePanel(List<List<Button>> buttonGrid, int index) {
+        LayoutContainer outerContainer = new LayoutContainer();
+        outerContainer.setLayout(new RowLayout());
 
-	        for (int i = 0; i < residualValue; ++i) {
-	            residualRow.add(buttons.get(buttonIndex++), new HBoxLayoutData(10, index, index, index));
-	        }
+        for (List<Button> row : buttonGrid) {
+            LayoutContainer rowContainer = new LayoutContainer();
+            rowContainer.setLayout(new HBoxLayout());
+            rowContainer.setWidth(400);
 
-	        outerContainer.add(residualRow); // Add the last row with remaining buttons
-	    }
+            for (Button button : row) {
+                rowContainer.add(button, new HBoxLayoutData(5, index, index, index)); 
+            }
 
-	    add(outerContainer); // Add the outer container to the TabItem
-	}
+            outerContainer.add(rowContainer);
+        }
 
-	private int getWholeValue(int numOfButtons) {
-	    return (int) Math.floor(Math.sqrt(numOfButtons)); // Correct whole part
-	}
+        add(outerContainer);
+    }
 
-	private int getResidualValue(int numOfButtons) {
-	    int wholePart = getWholeValue(numOfButtons);
-	    return numOfButtons - (wholePart * wholePart); // Remaining buttons
-	}
+    
+    private int getWholeValue(int numOfButtons) {
+        return (int) Math.floor(Math.sqrt(numOfButtons));
+    }
+
+    private int getResidualValue(int numOfButtons) {
+        int wholePart = getWholeValue(numOfButtons);
+        return numOfButtons - (wholePart * wholePart);
+    }
+    
+    private void buttonTextChangeInThisRowAndColumn(final List<List<Button>> buttonGrid) {
+        for (int rowIndex = 0; rowIndex < buttonGrid.size(); ++rowIndex) {
+            List<Button> row = buttonGrid.get(rowIndex);
+            for (int colIndex = 0; colIndex < row.size(); ++colIndex) {
+                final int currentRow = rowIndex;
+                final int currentCol = colIndex;
+                final Button button = row.get(colIndex);
+
+                button.addSelectionListener(new SelectionListener<ButtonEvent>() {
+                    @Override
+                    public void componentSelected(ButtonEvent ce) {
+                        List<Button> sameRowAndColumnButtons = getSameRowAndColumnButtons(buttonGrid, currentRow, currentCol);
+                        
+                        for (final Button b : sameRowAndColumnButtons) {
+                            if (b != button) {
+                                int currentValue = Integer.parseInt(b.getText());
+                                b.setText(String.valueOf(currentValue + 1));
+                            }
+                        }
+                    }
+                });
+            }
+        }
+    }
+
+    private List<Button> getSameRowAndColumnButtons(final List<List<Button>> buttonGrid, int row, int col) {
+        List<Button> result = new ArrayList<Button>();
+
+        for (int i = 0; i < buttonGrid.get(row).size(); ++i) {
+            if (i != col) {
+                result.add(buttonGrid.get(row).get(i));
+            }
+        }
+
+        for (int i = 0; i < buttonGrid.size(); ++i) {
+            if (i != row) {
+                result.add(buttonGrid.get(i).get(col));
+            }
+        }
+
+        return result;
+    }
+
 
 }
